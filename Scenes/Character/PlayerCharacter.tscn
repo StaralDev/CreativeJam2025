@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bu0p3s5wuvskp"]
 
 [ext_resource type="Script" path="res://Scenes/Character/PlayerCharacter.cs" id="1_bmm5q"]
-[ext_resource type="Texture2D" uid="uid://1uwn6khl2nmx" path="res://ArtistDropBox/Jump Sprit Sheet.png" id="2_pc0i1"]
+[ext_resource type="Texture2D" uid="uid://ilk5rm25ykat" path="res://ArtistDropBox/Jump Sprit Sheet.png" id="2_pc0i1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l813x"]
 radius = 30.0

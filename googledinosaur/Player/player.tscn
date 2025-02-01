@@ -1,15 +1,15 @@
 [gd_scene load_steps=30 format=3 uid="uid://deu7h1jdj3si0"]
 
-[ext_resource type="Script" path="res://Scenes/player.gd" id="1_xxa1l"]
-[ext_resource type="Texture2D" uid="uid://di5wanbpfpfms" path="res://Dash_Step_Sprite_Sheet.png" id="2_hitf0"]
-[ext_resource type="Texture2D" uid="uid://dlni1nehmohb0" path="res://Duck_Sprite_Sheet.png" id="3_uotxy"]
-[ext_resource type="Texture2D" uid="uid://bwkmv04m54k05" path="res://Jump_Sprite_Sheet.png" id="4_kwdps"]
-[ext_resource type="Texture2D" uid="uid://dab43lryvmbr7" path="res://Assets/LockedIcon.png" id="4_mmxrd"]
+[ext_resource type="Script" path="res://Player/player.gd" id="1_xxa1l"]
+[ext_resource type="Texture2D" uid="uid://fwrto41ed438" path="res://Player/Dash_Step_Sprite_Sheet.png" id="2_hitf0"]
+[ext_resource type="Texture2D" uid="uid://duxbvlflr6gwb" path="res://Duck_Sprite_Sheet.png" id="3_uotxy"]
+[ext_resource type="Texture2D" uid="uid://cb8mpok2toti7" path="res://Player/Jump_Sprite_Sheet.png" id="4_kwdps"]
+[ext_resource type="Texture2D" uid="uid://bql0df1hk2u1m" path="res://Assets/LockedIcon.png" id="4_mmxrd"]
 [ext_resource type="PackedScene" uid="uid://brm2721qee8tc" path="res://Scenes/jumping_particles.tscn" id="5_cnhpm"]
-[ext_resource type="Texture2D" uid="uid://52tb4itqh1re" path="res://Run_Sprite_Sheet.png" id="5_hcf4f"]
-[ext_resource type="Texture2D" uid="uid://bxfvv4oyrmi2x" path="res://Assets/NiceCircle.png" id="7_7v07m"]
-[ext_resource type="AudioStream" uid="uid://cxd2ciukf2nmt" path="res://Sounds/powerUp.wav" id="8_ogya7"]
-[ext_resource type="AudioStream" uid="uid://ct76agkl1mgbs" path="res://Sounds/jump.wav" id="8_ppshu"]
+[ext_resource type="Texture2D" uid="uid://cqplejx33q8x6" path="res://Player/Run_Sprite_Sheet.png" id="5_hcf4f"]
+[ext_resource type="Texture2D" uid="uid://dssgkhygchvw0" path="res://Assets/NiceCircle.png" id="7_7v07m"]
+[ext_resource type="AudioStream" uid="uid://bloiybq7a4i6y" path="res://Sounds/powerUp.wav" id="8_ogya7"]
+[ext_resource type="AudioStream" uid="uid://bwk21ecb7ohab" path="res://Sounds/jump.wav" id="8_ppshu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hvngb"]
 atlas = ExtResource("4_kwdps")
@@ -156,7 +156,7 @@ script = ExtResource("1_xxa1l")
 z_index = 2
 scale = Vector2(0.0767122, 0.0767122)
 sprite_frames = SubResource("SpriteFrames_bxmmv")
-animation = &"Midair Duck"
+animation = &"Run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_v0usu")

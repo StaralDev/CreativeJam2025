@@ -4,7 +4,7 @@ enum States {ABLE, AIRSTALL, DEAD}
 var state = States.ABLE
 const SPEED = 400.0
 const JUMP_VELOCITY = -400.0
-var movement_speed = 200
+var movement_speed = 400.0
 var gravity_multiplier = 1
 @onready var sprite = $AnimatedSprite2D
 var can_airstall = true
@@ -53,6 +53,15 @@ func _physics_process(delta: float) -> void:
 		# The player's hurtbox needs to be adjusted eventually.
 		if velocity.y < 0:
 			velocity.y = 0
+
+	if Input.is_action_pressed("SpeedUp"):
+		movement_speed = 600.0
+
+	if Input.is_action_pressed("SpeedDown"):
+		movement_speed = 200.0
+		
+	if Input.is_action_just_released("SpeedUp") || Input.is_action_just_released("SpeedDown"):
+		movement_speed = 400.0
 	
 	if state != States.AIRSTALL:
 		if Input.is_action_pressed("Duck"):

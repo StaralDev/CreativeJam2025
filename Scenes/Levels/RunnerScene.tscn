@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=4 uid="uid://cl80gt4axrtyu"]
 
 [ext_resource type="PackedScene" uid="uid://bu0p3s5wuvskp" path="res://Scenes/Character/PlayerCharacter.tscn" id="1_3syp2"]
-[ext_resource type="Texture2D" uid="uid://c6c0kr2e3ra3k" path="res://ArtistDropBox/carpet tile smol.png" id="2_oa8rs"]
+[ext_resource type="Texture2D" uid="uid://cl1ohkbbsj1lo" path="res://ArtistDropBox/carpet tile smol.png" id="2_oa8rs"]
 [ext_resource type="PackedScene" uid="uid://ci7p5vwecbe58" path="res://Scenes/Obstacles/Platform.tscn" id="3_uh8es"]
-[ext_resource type="PackedScene" uid="uid://b238okcg7u473" path="res://FilmFrame.tscn" id="4_lryd0"]
-[ext_resource type="PackedScene" uid="uid://dqgfe1ifnw7pq" path="res://Scenes/parallax_background.tscn" id="5_ynjfb"]
+[ext_resource type="PackedScene" path="res://FilmFrame.tscn" id="4_lryd0"]
+[ext_resource type="PackedScene" path="res://Scenes/parallax_background.tscn" id="5_ynjfb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g0viy"]
 texture = ExtResource("2_oa8rs")
