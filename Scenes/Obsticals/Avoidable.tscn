@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0n0qt2dam30n"]
+
+[ext_resource type="Script" path="res://Scripts/Level/Obstical.cs" id="1_pdi80"]
+[ext_resource type="Texture2D" uid="uid://ctvektiyo1ied" path="res://icon.svg" id="2_81s40"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vum7"]
+size = Vector2(64, 64)
+
+[node name="Avoidable" type="Area2D"]
+script = ExtResource("1_pdi80")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_81s40")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7vum7")
+debug_color = Color(0.999018, 0, 0.126033, 0.42)

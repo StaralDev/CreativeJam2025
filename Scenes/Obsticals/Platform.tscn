@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci7p5vwecbe58"]
+
+[ext_resource type="Script" path="res://Scripts/Level/Obstical.cs" id="1_7tuln"]
+[ext_resource type="Texture2D" uid="uid://ctvektiyo1ied" path="res://icon.svg" id="2_yy6pf"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ds3ql"]
+a = Vector2(-33, -28)
+b = Vector2(-33, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjciw"]
+size = Vector2(64, 64)
+
+[node name="Platform" type="Area2D"]
+script = ExtResource("1_7tuln")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_yy6pf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_ds3ql")
+debug_color = Color(1, 0.0128388, 0.01203, 0.42)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_gjciw")
+debug_color = Color(0, 0.641565, 0.33225, 0.42)

@@ -1,24 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgg50ww8fm12l"]
+[gd_scene load_steps=3 format=3 uid="uid://cgg50ww8fm12l"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Segment.cs" id="1_mt54r"]
-[ext_resource type="Script" path="res://Scripts/Level/Obstical.cs" id="2_nsj0b"]
-[ext_resource type="Texture2D" uid="uid://ctvektiyo1ied" path="res://icon.svg" id="3_iw1i5"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4qwq"]
+[ext_resource type="PackedScene" uid="uid://b0n0qt2dam30n" path="res://Scenes/Obsticals/Avoidable.tscn" id="2_gv3cd"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Segment" type="Node2D" parent="."]
 script = ExtResource("1_mt54r")
 
-[node name="Obstical" type="Area2D" parent="Segment"]
-position = Vector2(2300, 1)
-script = ExtResource("2_nsj0b")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Segment/Obstical"]
-position = Vector2(3, 5)
-shape = SubResource("RectangleShape2D_e4qwq")
-
-[node name="Icon" type="Sprite2D" parent="Segment/Obstical"]
-position = Vector2(1, 0)
-texture = ExtResource("3_iw1i5")
+[node name="Avoidable" parent="." instance=ExtResource("2_gv3cd")]
