@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu0p3s5wuvskp"]
+
+[ext_resource type="Script" path="res://Scenes/Character/PlayerCharacter.cs" id="1_bmm5q"]
+[ext_resource type="Texture2D" uid="uid://ctvektiyo1ied" path="res://icon.svg" id="2_ji13u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l813x"]
+radius = 29.0
+height = 116.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjcmu"]
+size = Vector2(120.5, 126)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_bmm5q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 51)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_l813x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ji13u")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="HitBox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_mjcmu")
