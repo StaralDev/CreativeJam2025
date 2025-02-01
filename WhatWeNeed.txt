@@ -1,0 +1,5 @@
+- Main Menu
+- Player Character
+- A way to generate and destroy segments
+    - Counter for how long you've been
+- Death Screen
