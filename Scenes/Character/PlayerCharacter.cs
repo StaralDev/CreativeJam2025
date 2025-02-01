@@ -4,7 +4,7 @@ using System;
 public partial class PlayerCharacter : CharacterBody2D
 {
 	public const float Speed = 300.0f;
-	public const float JumpVelocity = -400.0f;
+	public const float JumpVelocity = -500.0f;
 	public bool DoubleJumpAvalible = true;
 	public Area2D hitbox;
 	private AnimatedSprite2D animatedSprite;
