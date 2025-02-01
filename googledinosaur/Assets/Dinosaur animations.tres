@@ -1,0 +1,82 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://bd3vbb0o1le5v"]
+
+[ext_resource type="Texture2D" uid="uid://brp8opfejn7i8" path="res://Assets/DinosaurDead.png" id="1_xn0e1"]
+[ext_resource type="Texture2D" uid="uid://c8vdp3w8m35g3" path="res://Assets/Dinosaur.png" id="2_ajj8f"]
+[ext_resource type="Texture2D" uid="uid://r2sf0yat5qhd" path="res://Assets/Duck.png" id="3_t6x17"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqpx4"]
+atlas = ExtResource("1_xn0e1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4ylf"]
+atlas = ExtResource("2_ajj8f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bys7"]
+atlas = ExtResource("3_t6x17")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmry3"]
+atlas = ExtResource("2_ajj8f")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqfaj"]
+atlas = ExtResource("2_ajj8f")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82dxo"]
+atlas = ExtResource("3_t6x17")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3qco"]
+atlas = ExtResource("3_t6x17")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqpx4")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4ylf")
+}],
+"loop": true,
+"name": &"Midair",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bys7")
+}],
+"loop": true,
+"name": &"Midair Duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmry3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqfaj")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82dxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3qco")
+}],
+"loop": true,
+"name": &"Run Duck",
+"speed": 5.0
+}]

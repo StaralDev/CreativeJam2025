@@ -1,0 +1,209 @@
+[gd_scene load_steps=30 format=3 uid="uid://deu7h1jdj3si0"]
+
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_xxa1l"]
+[ext_resource type="Texture2D" uid="uid://di5wanbpfpfms" path="res://Dash_Step_Sprite_Sheet.png" id="2_hitf0"]
+[ext_resource type="Texture2D" uid="uid://dlni1nehmohb0" path="res://Duck_Sprite_Sheet.png" id="3_uotxy"]
+[ext_resource type="Texture2D" uid="uid://bwkmv04m54k05" path="res://Jump_Sprite_Sheet.png" id="4_kwdps"]
+[ext_resource type="Texture2D" uid="uid://dab43lryvmbr7" path="res://Assets/LockedIcon.png" id="4_mmxrd"]
+[ext_resource type="PackedScene" uid="uid://brm2721qee8tc" path="res://Scenes/jumping_particles.tscn" id="5_cnhpm"]
+[ext_resource type="Texture2D" uid="uid://52tb4itqh1re" path="res://Run_Sprite_Sheet.png" id="5_hcf4f"]
+[ext_resource type="Texture2D" uid="uid://bxfvv4oyrmi2x" path="res://Assets/NiceCircle.png" id="7_7v07m"]
+[ext_resource type="AudioStream" uid="uid://cxd2ciukf2nmt" path="res://Sounds/powerUp.wav" id="8_ogya7"]
+[ext_resource type="AudioStream" uid="uid://ct76agkl1mgbs" path="res://Sounds/jump.wav" id="8_ppshu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvngb"]
+atlas = ExtResource("4_kwdps")
+region = Rect2(430, 0, 440, 430)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvyuk"]
+atlas = ExtResource("4_kwdps")
+region = Rect2(870, 0, 440, 430)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wj4g4"]
+atlas = ExtResource("4_kwdps")
+region = Rect2(1310, 0, 440, 430)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vampe"]
+atlas = ExtResource("4_kwdps")
+region = Rect2(430, 430, 440, 430)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g6hf"]
+atlas = ExtResource("4_kwdps")
+region = Rect2(870, 430, 440, 430)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmech"]
+atlas = ExtResource("4_kwdps")
+region = Rect2(1310, 430, 440, 430)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8x3f"]
+atlas = ExtResource("2_hitf0")
+region = Rect2(870, 430, 440, 430)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv8rk"]
+atlas = ExtResource("5_hcf4f")
+region = Rect2(430, 0, 440, 430)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tetqs"]
+atlas = ExtResource("5_hcf4f")
+region = Rect2(870, 0, 440, 430)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxpgf"]
+atlas = ExtResource("5_hcf4f")
+region = Rect2(1310, 0, 440, 430)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ohht"]
+atlas = ExtResource("5_hcf4f")
+region = Rect2(430, 430, 440, 430)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw7xg"]
+atlas = ExtResource("5_hcf4f")
+region = Rect2(870, 430, 440, 430)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8amn8"]
+atlas = ExtResource("3_uotxy")
+region = Rect2(430, 430, 440, 430)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnroy"]
+atlas = ExtResource("3_uotxy")
+region = Rect2(870, 430, 440, 430)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urm7h"]
+atlas = ExtResource("3_uotxy")
+region = Rect2(1310, 430, 440, 430)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bxmmv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvngb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvyuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wj4g4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vampe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g6hf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmech")
+}],
+"loop": true,
+"name": &"Midair",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8x3f")
+}],
+"loop": true,
+"name": &"Midair Duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rv8rk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tetqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxpgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ohht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw7xg")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8amn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnroy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urm7h")
+}],
+"loop": true,
+"name": &"Run Duck",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0usu"]
+
+[sub_resource type="Curve" id="Curve_k1ohs"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.134953, 0.974904), -1.36072, -1.36072, 0, 0, Vector2(1, 0), -0.78998, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_u0mua"]
+_data = [Vector2(0.0013947, 0.996948), 0.0, -0.013184, 0, 0, Vector2(1, 0), -0.888691, 0.0, 0, 0]
+point_count = 2
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_xxa1l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+scale = Vector2(0.0767122, 0.0767122)
+sprite_frames = SubResource("SpriteFrames_bxmmv")
+animation = &"Midair Duck"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_v0usu")
+
+[node name="AirstallTime" type="Timer" parent="."]
+one_shot = true
+
+[node name="AirstallCooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="TrailTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = 1
+position = Vector2(0, 7)
+points = PackedVector2Array(0, 0)
+width_curve = SubResource("Curve_k1ohs")
+
+[node name="LockedIcon" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.678431)
+z_index = 3
+position = Vector2(0, 4)
+texture = ExtResource("4_mmxrd")
+
+[node name="JumpingParticles" parent="." instance=ExtResource("5_cnhpm")]
+z_index = 10
+position = Vector2(0, 15)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 100
+texture = ExtResource("7_7v07m")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_u0mua")
+color = Color(1, 1, 0.576471, 1)
+
+[node name="SoundStall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ogya7")
+volume_db = -10.0
+
+[node name="SoundJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ppshu")
+
+[connection signal="timeout" from="AirstallTime" to="." method="_on_airstall_time_timeout"]
+[connection signal="timeout" from="AirstallCooldown" to="." method="_on_airstall_cooldown_timeout"]
+[connection signal="timeout" from="TrailTimer" to="." method="_on_trail_timer_timeout"]
