@@ -16,7 +16,7 @@ public partial class PlayerCharacter : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
-
+		velocity.X = Speed; //*Convert.ToFloat(Speed));
 		// Add the gravity.
 		if (!IsOnFloor())
 		{
