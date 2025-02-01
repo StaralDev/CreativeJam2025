@@ -103,3 +103,13 @@ func _on_airstall_cooldown_timeout() -> void:
 
 func _on_trail_timer_timeout() -> void:
 	trail.add_point(position)
+	
+func to_duck():
+	sprite.play("DuckRun")
+	$DuckCollision.disabled = false
+	$NormalCollision.disabled = true
+	
+func to_player():
+	sprite.play("Run")
+	$DuckCollision.disabled = true
+	$NormalCollision.disabled = false
