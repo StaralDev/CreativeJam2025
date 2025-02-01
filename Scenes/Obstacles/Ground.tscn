@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://chpyqfyqcwfsb"]
-
-[ext_resource type="Texture2D" uid="uid://cv4o4ked6i3t0" path="res://ArtistDropBox/carpet tile.png" id="1_01p2i"]
+[gd_scene load_steps=2 format=3 uid="uid://chpyqfyqcwfsb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0enj7"]
 
@@ -8,7 +6,6 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.126044, 0.126044)
-texture = ExtResource("1_01p2i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6.77894, 6.77894)

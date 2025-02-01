@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b238okcg7u473"]
+
+[ext_resource type="Texture2D" uid="uid://ctp0mqh6ea575" path="res://ArtistDropBox/FilmFrame.png" id="1_rk73r"]
+
+[node name="FilmFrame" type="CanvasLayer"]
+follow_viewport_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.59646, 1.799)
+texture = ExtResource("1_rk73r")

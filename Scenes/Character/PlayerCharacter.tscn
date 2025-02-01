@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://1uwn6khl2nmx" path="res://ArtistDropBox/Jump Sprit Sheet.png" id="2_pc0i1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l813x"]
-radius = 29.0
-height = 116.0
+radius = 30.0
+height = 130.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a4m3h"]
 atlas = ExtResource("2_pc0i1")
@@ -78,11 +78,11 @@ size = Vector2(120.5, 126)
 script = ExtResource("1_bmm5q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 51)
-rotation = 1.5708
+position = Vector2(-1, 0.302383)
 shape = SubResource("CapsuleShape2D_l813x")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -15.6976)
 scale = Vector2(0.396678, 0.396678)
 sprite_frames = SubResource("SpriteFrames_m5x0t")
 animation = &"Run"
@@ -94,4 +94,4 @@ frame_progress = 0.693124
 shape = SubResource("RectangleShape2D_mjcmu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -205)
+position = Vector2(0, -53)
