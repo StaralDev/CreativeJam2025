@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4crggbcc1dp2"]
+
+[ext_resource type="Texture2D" uid="uid://bgy1m0ogfurud" path="res://Assets/SpikeSprite.png" id="1_dosjj"]
+[ext_resource type="Script" path="res://Scenes/spike.gd" id="2_sxd6x"]
+
+[node name="Spike" type="Sprite2D"]
+texture = ExtResource("1_dosjj")
+script = ExtResource("2_sxd6x")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-4, -8, -8, 8, 8, 8, 5, -8)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

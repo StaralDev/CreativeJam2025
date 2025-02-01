@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://brm2721qee8tc"]
+
+[ext_resource type="Texture2D" uid="uid://bcj72xd733u4" path="res://Assets/CircleShape.png" id="1_f0n6s"]
+
+[sub_resource type="Curve" id="Curve_2tnwn"]
+_data = [Vector2(0.0055788, 0.993895), 0.0, 0.0, 0, 0, Vector2(0.532775, 0.758864), -0.629581, -0.629581, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="JumpingParticles" type="CPUParticles2D"]
+emitting = false
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("1_f0n6s")
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(0, -1)
+gravity = Vector2(0, 300)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+scale_amount_curve = SubResource("Curve_2tnwn")
+hue_variation_max = 1.0

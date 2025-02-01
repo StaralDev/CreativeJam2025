@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpwp7amqo12jo"]
+
+[ext_resource type="Script" path="res://Scenes/SpecialCamera.gd" id="1_1ufw8"]
+
+[node name="SpecialCamera" type="Camera2D"]
+script = ExtResource("1_1ufw8")

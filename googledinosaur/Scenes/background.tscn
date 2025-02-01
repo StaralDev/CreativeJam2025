@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsvi1ps2how5i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tw0qe"]
+bg_color = Color(0.891807, 0.667333, 0.595339, 1)
+
+[node name="Background" type="CanvasLayer"]
+layer = -10
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -10
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tw0qe")

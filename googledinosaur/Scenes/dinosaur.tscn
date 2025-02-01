@@ -1,0 +1,156 @@
+[gd_scene load_steps=21 format=3 uid="uid://deu7h1jdj3si0"]
+
+[ext_resource type="Script" path="res://Scenes/dinosaur.gd" id="1_xxa1l"]
+[ext_resource type="Texture2D" uid="uid://c8vdp3w8m35g3" path="res://Assets/Dinosaur.png" id="2_3m0ek"]
+[ext_resource type="Texture2D" uid="uid://brp8opfejn7i8" path="res://Assets/DinosaurDead.png" id="2_7fva7"]
+[ext_resource type="Texture2D" uid="uid://r2sf0yat5qhd" path="res://Assets/Duck.png" id="3_s5iqt"]
+[ext_resource type="Texture2D" uid="uid://dab43lryvmbr7" path="res://Assets/LockedIcon.png" id="4_mmxrd"]
+[ext_resource type="PackedScene" uid="uid://brm2721qee8tc" path="res://Scenes/jumping_particles.tscn" id="5_cnhpm"]
+[ext_resource type="Texture2D" uid="uid://bxfvv4oyrmi2x" path="res://Assets/NiceCircle.png" id="7_7v07m"]
+[ext_resource type="AudioStream" uid="uid://cxd2ciukf2nmt" path="res://Sounds/powerUp.wav" id="8_ogya7"]
+[ext_resource type="AudioStream" uid="uid://ct76agkl1mgbs" path="res://Sounds/jump.wav" id="8_ppshu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqpx4"]
+atlas = ExtResource("2_7fva7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4ylf"]
+atlas = ExtResource("2_3m0ek")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bys7"]
+atlas = ExtResource("3_s5iqt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmry3"]
+atlas = ExtResource("2_3m0ek")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqfaj"]
+atlas = ExtResource("2_3m0ek")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82dxo"]
+atlas = ExtResource("3_s5iqt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3qco"]
+atlas = ExtResource("3_s5iqt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kiyvb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqpx4")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4ylf")
+}],
+"loop": true,
+"name": &"Midair",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bys7")
+}],
+"loop": true,
+"name": &"Midair Duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmry3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqfaj")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82dxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3qco")
+}],
+"loop": true,
+"name": &"Run Duck",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0usu"]
+
+[sub_resource type="Curve" id="Curve_k1ohs"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.134953, 0.974904), -1.36072, -1.36072, 0, 0, Vector2(1, 0), -0.78998, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_u0mua"]
+_data = [Vector2(0.0013947, 0.996948), 0.0, -0.013184, 0, 0, Vector2(1, 0), -0.888691, 0.0, 0, 0]
+point_count = 2
+
+[node name="Dinosaur" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_xxa1l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+sprite_frames = SubResource("SpriteFrames_kiyvb")
+animation = &"Dead"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_v0usu")
+
+[node name="AirstallTime" type="Timer" parent="."]
+one_shot = true
+
+[node name="AirstallCooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="TrailTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = 1
+position = Vector2(0, 7)
+points = PackedVector2Array(0, 0)
+width_curve = SubResource("Curve_k1ohs")
+
+[node name="LockedIcon" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.678431)
+z_index = 3
+position = Vector2(0, 4)
+texture = ExtResource("4_mmxrd")
+
+[node name="JumpingParticles" parent="." instance=ExtResource("5_cnhpm")]
+z_index = 10
+position = Vector2(0, 15)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 100
+texture = ExtResource("7_7v07m")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_u0mua")
+color = Color(1, 1, 0.576471, 1)
+
+[node name="SoundStall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ogya7")
+volume_db = -10.0
+
+[node name="SoundJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ppshu")
+
+[connection signal="timeout" from="AirstallTime" to="." method="_on_airstall_time_timeout"]
+[connection signal="timeout" from="AirstallCooldown" to="." method="_on_airstall_cooldown_timeout"]
+[connection signal="timeout" from="TrailTimer" to="." method="_on_trail_timer_timeout"]
