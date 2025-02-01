@@ -8,7 +8,7 @@ var chunks = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	player = get_node("Dinosaur")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,11 +24,12 @@ func add_new_chunk(chunk):
 	# Now that the chunk is here, add spikes along the points.
 	for i in range(8):
 		if rng.randi_range(0, 1): # here I am taking advantage of the fact that 0 evaluates to false
-			if not rng.randi_range(0, 9):
+			if not rng.randi_range(0, 9) || player.am_duck:
 				continue
 			var new_egg = load("res://Egg.tscn").instantiate()
 			print("Hello")
-			new_egg.position = Vector2(i*200 +latest_chunk.position.x + 748, 157)
+			new_egg.position = Vector2(i*200 +latest_chunk.position.x + 748, 111)
+			self.add_child(new_egg)
 		for z in range(-1, rng.randi_range(0, 2)):
 			print()
 			var new_spike = load("res://Scenes/Spike.tscn").instantiate()
@@ -36,12 +37,14 @@ func add_new_chunk(chunk):
 			self.add_child(new_spike)
 	self.add_child(new_chunk)
 	latest_chunk = new_chunk
-	#player.movement_speed *= 1.2 # will provide a more exponential speed than you would expect.
+	player.movement_speed *= 1.2 # will provide a more exponential speed than you would expect.
 	chunks.append(latest_chunk)
 	print(player.movement_speed)
 	
 	if len(chunks) > 2:
 		delete_previous_chunk()
+	
+	Globa.Score += 100
 
 func delete_previous_chunk():
 	chunks.remove_at(0)

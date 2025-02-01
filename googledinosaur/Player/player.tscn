@@ -289,6 +289,11 @@ position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_44ms3")
 disabled = true
 
+[node name="DuckTime" type="Timer" parent="."]
+wait_time = 3.681
+one_shot = true
+
 [connection signal="timeout" from="AirstallTime" to="." method="_on_airstall_time_timeout"]
 [connection signal="timeout" from="AirstallCooldown" to="." method="_on_airstall_cooldown_timeout"]
 [connection signal="timeout" from="TrailTimer" to="." method="_on_trail_timer_timeout"]
+[connection signal="timeout" from="DuckTime" to="." method="_on_duck_time_timeout"]

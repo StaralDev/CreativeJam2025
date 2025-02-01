@@ -45,4 +45,4 @@ position = Vector2(-155, 0)
 [node name="Line2D" type="Line2D" parent="."]
 
 [node name="Area2D" parent="." instance=ExtResource("7_7iwmg")]
-position = Vector2(84, 154.667)
+position = Vector2(240.333, 102)

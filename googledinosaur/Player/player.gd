@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 enum States {ABLE, AIRSTALL, DEAD}
 var state = States.ABLE
-const SPEED = 400.0
+const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 var movement_speed = 400.0
 var gravity_multiplier = 1
@@ -10,10 +10,13 @@ var gravity_multiplier = 1
 var can_airstall = true
 var can_doublejump = true
 var am_duck = false
+var duckDoubleJumps = 2
 @export var trail: Line2D
+var duck_timer = Timer
 
 func _ready() -> void:
 	sprite.play("Run")
+	duck_timer = get_node("DuckTime")
 
 func _physics_process(delta: float) -> void:
 	if state == States.DEAD:
@@ -28,6 +31,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta * gravity_multiplier
 	if is_on_floor():
 		can_doublejump = true
+		duckDoubleJumps = 2
 	
 	velocity.x = movement_speed
 	
@@ -48,20 +52,21 @@ func _physics_process(delta: float) -> void:
 		$SoundJump.play()
 		#print("The player jumped!")
 	elif Input.is_action_just_pressed("Jump") and can_doublejump and not is_on_floor() and state != States.AIRSTALL:
-		velocity.y = JUMP_VELOCITY
-		can_doublejump = false
-		$SoundJump.play()
+		if am_duck == true && duckDoubleJumps != 0:
+			velocity.y = JUMP_VELOCITY
+			duckDoubleJumps -= 1
+			$SoundJump.play()
+		elif am_duck == true:
+			can_doublejump = false
+		elif am_duck == false:
+			velocity.y = JUMP_VELOCITY
+			can_doublejump = false
+			$SoundJump.play()
 	
 	if Input.is_action_just_pressed("Duck"):
 		# The player's hurtbox needs to be adjusted eventually.
 		if velocity.y < 0:
 			velocity.y = 0
-
-	if Input.is_action_pressed("SpeedUp"):
-		movement_speed = 600.0
-
-	if Input.is_action_pressed("SpeedDown"):
-		movement_speed = 200.0
 		
 	if Input.is_action_just_released("SpeedUp") || Input.is_action_just_released("SpeedDown"):
 		movement_speed = 400.0
@@ -100,12 +105,6 @@ func _physics_process(delta: float) -> void:
 	if $LockedIcon.visible:
 		self.modulate.b = 1 - $AirstallTime.time_left
 	$LockedIcon.modulate.a = $AirstallTime.time_left # I don't need to use time_left / total_time since the wait time is 1 second
-	
-	if Input.is_action_just_pressed("Become"):
-		if am_duck == true:
-			to_player()
-		else:
-			to_duck()
 
 func _on_airstall_time_timeout() -> void:
 	if state != States.DEAD:
@@ -126,9 +125,14 @@ func to_duck():
 	$DuckCollision.disabled = false
 	$NormalCollision.disabled = true
 	am_duck = true
+	duck_timer.start(7)
 	
 func to_player():
 	sprite.play("Run")
 	$DuckCollision.disabled = true
 	$NormalCollision.disabled = false
 	am_duck = false
+
+
+func _on_duck_time_timeout() -> void:
+	to_player()
