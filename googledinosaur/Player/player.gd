@@ -9,6 +9,7 @@ var gravity_multiplier = 1
 @onready var sprite = $AnimatedSprite2D
 var can_airstall = true
 var can_doublejump = true
+var am_duck = false
 @export var trail: Line2D
 
 func _ready() -> void:
@@ -36,6 +37,8 @@ func _physics_process(delta: float) -> void:
 		can_airstall = false
 		velocity.y = 0
 		$AirstallTime.paused = false
+		if am_duck == true:
+			sprite.play("DuckDash")
 		$AirstallTime.start()
 		$SoundStall.play()
 	
@@ -65,17 +68,26 @@ func _physics_process(delta: float) -> void:
 	
 	if state != States.AIRSTALL:
 		if Input.is_action_pressed("Duck"):
-			if is_on_floor() and sprite.animation != "Run Duck":
-				sprite.play("Run Duck")
-			elif not is_on_floor() and sprite.animation != "Midair Duck":
-				sprite.play("Midair Duck")
+			if am_duck == true:
+				pass
+			else:
+				if is_on_floor() and sprite.animation != "Run Duck":
+					sprite.play("Run Duck")
+				elif not is_on_floor() and sprite.animation != "Midair Duck":
+					sprite.play("Midair Duck")
 			gravity_multiplier = 10
 		else:
+			if am_duck == true:
+				if is_on_floor() and sprite.animation != "DuckRun":
+					sprite.play("DuckRun")
+				elif not is_on_floor() and sprite.animation != "Midair":
+					sprite.play("DuckJump")
+			else:
+				if is_on_floor() and sprite.animation != "Run":
+					sprite.play("Run")
+				elif not is_on_floor() and sprite.animation != "Midair":
+					sprite.play("Midair")
 			gravity_multiplier = 1
-			if is_on_floor() and sprite.animation != "Run":
-				sprite.play("Run")
-			elif not is_on_floor() and sprite.animation != "Midair":
-				sprite.play("Midair")
 	if state == States.AIRSTALL and Input.is_action_just_pressed("Duck"):
 		$AirstallTime.paused = true
 		self.modulate.b = 1
@@ -88,7 +100,12 @@ func _physics_process(delta: float) -> void:
 	if $LockedIcon.visible:
 		self.modulate.b = 1 - $AirstallTime.time_left
 	$LockedIcon.modulate.a = $AirstallTime.time_left # I don't need to use time_left / total_time since the wait time is 1 second
-
+	
+	if Input.is_action_just_pressed("Become"):
+		if am_duck == true:
+			to_player()
+		else:
+			to_duck()
 
 func _on_airstall_time_timeout() -> void:
 	if state != States.DEAD:
@@ -108,8 +125,10 @@ func to_duck():
 	sprite.play("DuckRun")
 	$DuckCollision.disabled = false
 	$NormalCollision.disabled = true
+	am_duck = true
 	
 func to_player():
 	sprite.play("Run")
 	$DuckCollision.disabled = true
 	$NormalCollision.disabled = false
+	am_duck = false

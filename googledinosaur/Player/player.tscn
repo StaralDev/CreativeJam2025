@@ -1,8 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://di3aaonabglf5"]
+[gd_scene load_steps=42 format=3 uid="uid://di3aaonabglf5"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xxa1l"]
 [ext_resource type="Texture2D" uid="uid://bu0hhktqop24h" path="res://Assets/Duck_Running.png" id="2_bcpv3"]
 [ext_resource type="Texture2D" uid="uid://fwrto41ed438" path="res://Player/Dash_Step_Sprite_Sheet.png" id="2_hitf0"]
+[ext_resource type="Texture2D" uid="uid://btvhxe0oh5mcv" path="res://Assets/Duck_Fly_(dash).png" id="2_otmwr"]
+[ext_resource type="Texture2D" uid="uid://c286sxa01av22" path="res://Assets/Duck_Jump.png" id="3_f7qo3"]
 [ext_resource type="Texture2D" uid="uid://2dpwtyvnm0b4" path="res://Duck_Sprite_Sheet.png" id="3_uotxy"]
 [ext_resource type="Texture2D" uid="uid://cb8mpok2toti7" path="res://Player/Jump_Sprite_Sheet.png" id="4_kwdps"]
 [ext_resource type="Texture2D" uid="uid://bql0df1hk2u1m" path="res://Assets/LockedIcon.png" id="4_mmxrd"]
@@ -11,6 +13,26 @@
 [ext_resource type="Texture2D" uid="uid://dssgkhygchvw0" path="res://Assets/NiceCircle.png" id="7_7v07m"]
 [ext_resource type="AudioStream" uid="uid://bloiybq7a4i6y" path="res://Sounds/powerUp.wav" id="8_ogya7"]
 [ext_resource type="AudioStream" uid="uid://bwk21ecb7ohab" path="res://Sounds/jump.wav" id="8_ppshu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vysij"]
+atlas = ExtResource("2_otmwr")
+region = Rect2(422, 53, 422, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik277"]
+atlas = ExtResource("2_otmwr")
+region = Rect2(844, 53, 422, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fymu"]
+atlas = ExtResource("3_f7qo3")
+region = Rect2(422, 53, 422, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijwvd"]
+atlas = ExtResource("3_f7qo3")
+region = Rect2(844, 53, 422, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icckt"]
+atlas = ExtResource("3_f7qo3")
+region = Rect2(1266, 53, 422, 360)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8aqol"]
 atlas = ExtResource("2_bcpv3")
@@ -86,6 +108,31 @@ region = Rect2(1310, 430, 440, 430)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bxmmv"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vysij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik277")
+}],
+"loop": true,
+"name": &"DuckDash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fymu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijwvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icckt")
+}],
+"loop": true,
+"name": &"DuckJump",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8aqol")
@@ -189,9 +236,7 @@ script = ExtResource("1_xxa1l")
 z_index = 2
 scale = Vector2(0.0767122, 0.0767122)
 sprite_frames = SubResource("SpriteFrames_bxmmv")
-animation = &"DuckRun"
-frame = 1
-frame_progress = 0.122265
+animation = &"DuckJump"
 
 [node name="NormalCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_v0usu")
