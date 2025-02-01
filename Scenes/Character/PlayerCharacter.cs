@@ -6,11 +6,11 @@ public partial class PlayerCharacter : CharacterBody2D
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
 	public bool DoubleJumpAvalible = true;
-	public CollisionShape2D hitbox;
+	public Area2D hitbox;
 
 	public override void _Ready()
 	{
-		hitbox = GetNode<Area2D>("Area2D").GetNode<CollisionShape2D>("HitBox");
+		hitbox = GetNode<Area2D>("Area2D");
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -40,7 +40,7 @@ public partial class PlayerCharacter : CharacterBody2D
 
 		if (Input.IsActionJustPressed("Duck"))
 		{
-			//hitbox.Translation = new Vector2(0.0, 30.0);
+			hitbox.SetPosition(new Vector2(0, 30));
 		}
 
 		Velocity = velocity;
