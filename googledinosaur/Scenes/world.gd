@@ -24,7 +24,11 @@ func add_new_chunk(chunk):
 	# Now that the chunk is here, add spikes along the points.
 	for i in range(8):
 		if rng.randi_range(0, 1): # here I am taking advantage of the fact that 0 evaluates to false
-			continue
+			if not rng.randi_range(0, 9):
+				continue
+			var new_egg = load("res://Egg.tscn").instantiate()
+			print("Hello")
+			new_egg.position = Vector2(i*200 +latest_chunk.position.x + 748, 157)
 		for z in range(-1, rng.randi_range(0, 2)):
 			print()
 			var new_spike = load("res://Scenes/Spike.tscn").instantiate()

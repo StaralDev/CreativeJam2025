@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckfwcojkp6qs2"]
+[gd_scene load_steps=8 format=3 uid="uid://ckfwcojkp6qs2"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_qieg7"]
 [ext_resource type="PackedScene" uid="uid://di3aaonabglf5" path="res://Player/player.tscn" id="2_idaak"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bsvi1ps2how5i" path="res://Scenes/background.tscn" id="4_tva6x"]
 [ext_resource type="PackedScene" uid="uid://bpwp7amqo12jo" path="res://Scenes/SpecialCamera.tscn" id="5_vkfsu"]
 [ext_resource type="PackedScene" uid="uid://34r05pinkitt" path="res://Scenes/chunk.tscn" id="6_nllej"]
+[ext_resource type="PackedScene" uid="uid://bbhakuvnrtpdx" path="res://Egg.tscn" id="7_7iwmg"]
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("latest_chunk", "player")]
 scale = Vector2(3, 3)
@@ -42,3 +43,6 @@ player = NodePath("../Dinosaur")
 position = Vector2(-155, 0)
 
 [node name="Line2D" type="Line2D" parent="."]
+
+[node name="Area2D" parent="." instance=ExtResource("7_7iwmg")]
+position = Vector2(84, 154.667)
