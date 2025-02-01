@@ -140,6 +140,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0usu"]
+radius = 5.0
+height = 28.0
 
 [sub_resource type="Curve" id="Curve_k1ohs"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.134953, 0.974904), -1.36072, -1.36072, 0, 0, Vector2(1, 0), -0.78998, 0.0, 0, 0]
