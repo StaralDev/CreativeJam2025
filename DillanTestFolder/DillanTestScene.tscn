@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgg50ww8fm12l"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Segment.cs" id="1_mt54r"]
-[ext_resource type="PackedScene" uid="uid://b0n0qt2dam30n" path="res://Scenes/Obsticals/Avoidable.tscn" id="2_gv3cd"]
+[ext_resource type="PackedScene" uid="uid://b0n0qt2dam30n" path="res://Scenes/Obstacles/Avoidable.tscn" id="2_gv3cd"]
 
 [node name="Node2D" type="Node2D"]
 

@@ -25,3 +25,5 @@ texture = ExtResource("2_ji13u")
 
 [node name="HitBox" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_mjcmu")
+
+[node name="Camera2D" type="Camera2D" parent="."]

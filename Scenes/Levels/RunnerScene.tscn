@@ -1,13 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://cl80gt4axrtyu"]
 
 [ext_resource type="PackedScene" uid="uid://bu0p3s5wuvskp" path="res://Scenes/Character/PlayerCharacter.tscn" id="1_3syp2"]
-[ext_resource type="PackedScene" uid="uid://ci7p5vwecbe58" path="res://Scenes/Obsticals/Platform.tscn" id="2_u8uff"]
+
+[sub_resource type="TileSet" id="TileSet_6hgs5"]
+physics_layer_0/collision_layer = 1
 
 [node name="RunnerScene" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_3syp2")]
-position = Vector2(452, 281)
+position = Vector2(365, 855)
 
-[node name="Platform" parent="." instance=ExtResource("2_u8uff")]
-position = Vector2(1095, 1064)
-scale = Vector2(34.64, 1)
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(71, 1012)
+tile_set = SubResource("TileSet_6hgs5")
