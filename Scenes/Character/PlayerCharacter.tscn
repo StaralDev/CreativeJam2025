@@ -27,3 +27,4 @@ texture = ExtResource("2_ji13u")
 shape = SubResource("RectangleShape2D_mjcmu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -205)
