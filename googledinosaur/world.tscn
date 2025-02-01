@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckfwcojkp6qs2"]
+
+[ext_resource type="Script" path="res://Scenes/world.gd" id="1_qieg7"]
+[ext_resource type="PackedScene" uid="uid://di3aaonabglf5" path="res://Player/player.tscn" id="2_idaak"]
+[ext_resource type="PackedScene" uid="uid://c4crggbcc1dp2" path="res://Scenes/Spike.tscn" id="3_vw2v4"]
+[ext_resource type="PackedScene" uid="uid://bsvi1ps2how5i" path="res://Scenes/background.tscn" id="4_tva6x"]
+[ext_resource type="PackedScene" uid="uid://bpwp7amqo12jo" path="res://Scenes/SpecialCamera.tscn" id="5_vkfsu"]
+[ext_resource type="PackedScene" uid="uid://34r05pinkitt" path="res://Scenes/chunk.tscn" id="6_nllej"]
+
+[node name="World" type="Node2D" node_paths=PackedStringArray("latest_chunk", "player")]
+scale = Vector2(3, 3)
+script = ExtResource("1_qieg7")
+latest_chunk = NodePath("Chunk")
+player = NodePath("Dinosaur")
+
+[node name="Dinosaur" parent="." node_paths=PackedStringArray("trail") instance=ExtResource("2_idaak")]
+position = Vector2(47, 148)
+trail = NodePath("../Line2D")
+
+[node name="Spike" parent="." instance=ExtResource("3_vw2v4")]
+position = Vector2(199, 157)
+
+[node name="Spike2" parent="." instance=ExtResource("3_vw2v4")]
+position = Vector2(334.333, 157)
+
+[node name="Spike3" parent="." instance=ExtResource("3_vw2v4")]
+position = Vector2(474.667, 157)
+
+[node name="Spike4" parent="." instance=ExtResource("3_vw2v4")]
+position = Vector2(491, 157)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 0)
+
+[node name="Background" parent="." instance=ExtResource("4_tva6x")]
+
+[node name="SpecialCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_vkfsu")]
+position = Vector2(45.3333, 75.6667)
+player = NodePath("../Dinosaur")
+
+[node name="Chunk" parent="." instance=ExtResource("6_nllej")]
+position = Vector2(-155, 0)
+
+[node name="Line2D" type="Line2D" parent="."]

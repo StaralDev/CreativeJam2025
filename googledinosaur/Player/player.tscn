@@ -1,8 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://deu7h1jdj3si0"]
+[gd_scene load_steps=30 format=3 uid="uid://di3aaonabglf5"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xxa1l"]
 [ext_resource type="Texture2D" uid="uid://fwrto41ed438" path="res://Player/Dash_Step_Sprite_Sheet.png" id="2_hitf0"]
-[ext_resource type="Texture2D" uid="uid://duxbvlflr6gwb" path="res://Duck_Sprite_Sheet.png" id="3_uotxy"]
+[ext_resource type="Texture2D" uid="uid://2dpwtyvnm0b4" path="res://Duck_Sprite_Sheet.png" id="3_uotxy"]
 [ext_resource type="Texture2D" uid="uid://cb8mpok2toti7" path="res://Player/Jump_Sprite_Sheet.png" id="4_kwdps"]
 [ext_resource type="Texture2D" uid="uid://bql0df1hk2u1m" path="res://Assets/LockedIcon.png" id="4_mmxrd"]
 [ext_resource type="PackedScene" uid="uid://brm2721qee8tc" path="res://Scenes/jumping_particles.tscn" id="5_cnhpm"]
