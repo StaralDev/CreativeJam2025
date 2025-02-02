@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckfwcojkp6qs2"]
+[gd_scene load_steps=9 format=3 uid="uid://ckfwcojkp6qs2"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_qieg7"]
 [ext_resource type="PackedScene" uid="uid://di3aaonabglf5" path="res://Player/player.tscn" id="2_idaak"]
-[ext_resource type="PackedScene" uid="uid://c4crggbcc1dp2" path="res://Scenes/Spike.tscn" id="3_vw2v4"]
 [ext_resource type="PackedScene" uid="uid://bsvi1ps2how5i" path="res://Scenes/background.tscn" id="4_tva6x"]
 [ext_resource type="PackedScene" uid="uid://bpwp7amqo12jo" path="res://Scenes/SpecialCamera.tscn" id="5_vkfsu"]
 [ext_resource type="PackedScene" uid="uid://34r05pinkitt" path="res://Scenes/chunk.tscn" id="6_nllej"]
-[ext_resource type="PackedScene" uid="uid://bbhakuvnrtpdx" path="res://Egg.tscn" id="7_7iwmg"]
 [ext_resource type="PackedScene" uid="uid://d4kfro7hk1iej" path="res://Chair.tscn" id="8_w3u1h"]
+[ext_resource type="PackedScene" uid="uid://dm5nqxkb4eftl" path="res://StartScreen.tscn" id="8_xrr3m"]
 [ext_resource type="PackedScene" uid="uid://de4alau5e2h2n" path="res://Table.tscn" id="9_c10m3"]
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("latest_chunk", "player")]
@@ -19,18 +18,6 @@ player = NodePath("Dinosaur")
 [node name="Dinosaur" parent="." node_paths=PackedStringArray("trail") instance=ExtResource("2_idaak")]
 position = Vector2(47, 148)
 trail = NodePath("../Line2D")
-
-[node name="Spike" parent="." instance=ExtResource("3_vw2v4")]
-position = Vector2(199, 157)
-
-[node name="Spike2" parent="." instance=ExtResource("3_vw2v4")]
-position = Vector2(334.333, 157)
-
-[node name="Spike3" parent="." instance=ExtResource("3_vw2v4")]
-position = Vector2(474.667, 157)
-
-[node name="Spike4" parent="." instance=ExtResource("3_vw2v4")]
-position = Vector2(491, 157)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(0, 0)
@@ -46,12 +33,15 @@ position = Vector2(-155, 0)
 
 [node name="Line2D" type="Line2D" parent="."]
 
-[node name="Area2D" parent="." instance=ExtResource("7_7iwmg")]
-position = Vector2(240.333, 102)
-
 [node name="Table" parent="." instance=ExtResource("9_c10m3")]
 position = Vector2(485.667, 132)
 scale = Vector2(0.02, 0.0195)
 
 [node name="Chair" parent="." instance=ExtResource("8_w3u1h")]
 position = Vector2(198.667, 146.667)
+
+[node name="Node2D" parent="." instance=ExtResource("8_xrr3m")]
+position = Vector2(-132.667, -7)
+
+[node name="Chair2" parent="." instance=ExtResource("8_w3u1h")]
+position = Vector2(331.667, 148)

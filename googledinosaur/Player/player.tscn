@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://di3aaonabglf5"]
+[gd_scene load_steps=43 format=3 uid="uid://di3aaonabglf5"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xxa1l"]
 [ext_resource type="Texture2D" uid="uid://bu0hhktqop24h" path="res://Assets/Duck_Running.png" id="2_bcpv3"]
@@ -45,6 +45,10 @@ region = Rect2(858, 57, 425, 360)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7t012"]
 atlas = ExtResource("2_bcpv3")
 region = Rect2(1283, 57, 425, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwekj"]
+atlas = ExtResource("5_hcf4f")
+region = Rect2(876, 0, 438, 435)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hvngb"]
 atlas = ExtResource("4_kwdps")
@@ -149,6 +153,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fwekj")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_hvngb")
 }, {
 "duration": 1.0,
@@ -236,7 +248,7 @@ script = ExtResource("1_xxa1l")
 z_index = 2
 scale = Vector2(0.0767122, 0.0767122)
 sprite_frames = SubResource("SpriteFrames_bxmmv")
-animation = &"DuckJump"
+animation = &"Idle"
 
 [node name="NormalCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_v0usu")

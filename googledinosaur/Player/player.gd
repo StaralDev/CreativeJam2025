@@ -13,17 +13,17 @@ var am_duck = false
 var duckDoubleJumps = 2
 @export var trail: Line2D
 var duck_timer = Timer
+var canMove = false
 
 func _ready() -> void:
-	sprite.play("Run")
+	sprite.play("Idle")
 	duck_timer = get_node("DuckTime")
 
 func _physics_process(delta: float) -> void:
 	if state == States.DEAD:
-		sprite.play("Dead")
+		sprite.play("Idle")
 		var game_over_screen = load("res://Scenes/game_over_screen.tscn").instantiate()
 		owner.add_child(game_over_screen)
-		get_tree().paused = true
 		return
 	
 	# Add the gravity.
@@ -33,7 +33,10 @@ func _physics_process(delta: float) -> void:
 		can_doublejump = true
 		duckDoubleJumps = 2
 	
-	velocity.x = movement_speed
+	if canMove == true:
+		velocity.x = movement_speed
+	else:
+		sprite.play("Idle")
 	
 	if Input.is_action_just_pressed("Airstall") and can_airstall and not is_on_floor():
 		state = States.AIRSTALL
