@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckfwcojkp6qs2"]
+[gd_scene load_steps=10 format=3 uid="uid://ckfwcojkp6qs2"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_qieg7"]
 [ext_resource type="PackedScene" uid="uid://di3aaonabglf5" path="res://Player/player.tscn" id="2_idaak"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bpwp7amqo12jo" path="res://Scenes/SpecialCamera.tscn" id="5_vkfsu"]
 [ext_resource type="PackedScene" uid="uid://34r05pinkitt" path="res://Scenes/chunk.tscn" id="6_nllej"]
 [ext_resource type="PackedScene" uid="uid://bbhakuvnrtpdx" path="res://Egg.tscn" id="7_7iwmg"]
+[ext_resource type="PackedScene" uid="uid://d4kfro7hk1iej" path="res://Chair.tscn" id="8_w3u1h"]
+[ext_resource type="PackedScene" uid="uid://de4alau5e2h2n" path="res://Table.tscn" id="9_c10m3"]
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("latest_chunk", "player")]
 scale = Vector2(3, 3)
@@ -46,3 +48,10 @@ position = Vector2(-155, 0)
 
 [node name="Area2D" parent="." instance=ExtResource("7_7iwmg")]
 position = Vector2(240.333, 102)
+
+[node name="Table" parent="." instance=ExtResource("9_c10m3")]
+position = Vector2(485.667, 132)
+scale = Vector2(0.02, 0.0195)
+
+[node name="Chair" parent="." instance=ExtResource("8_w3u1h")]
+position = Vector2(198.667, 146.667)

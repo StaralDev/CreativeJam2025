@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://34r05pinkitt"]
+[gd_scene load_steps=6 format=4 uid="uid://34r05pinkitt"]
 
 [ext_resource type="Texture2D" uid="uid://3hn4i8uo40y2" path="res://Assets/Ground.png" id="1_wp811"]
 [ext_resource type="PackedScene" uid="uid://86yx1tcwqo51" path="res://Scenes/next_area.tscn" id="2_kkin4"]
+[ext_resource type="Texture2D" uid="uid://d3wv7n7qubtsn" path="res://FilmFrame.png" id="3_t0rkk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gm1ht"]
 texture = ExtResource("1_wp811")
@@ -28,3 +29,8 @@ tile_set = SubResource("TileSet_5dr0d")
 
 [node name="NextArea" parent="." instance=ExtResource("2_kkin4")]
 position = Vector2(577, 73)
+
+[node name="FilmFrame" type="Sprite2D" parent="."]
+position = Vector2(392, 100)
+scale = Vector2(0.653333, 0.4525)
+texture = ExtResource("3_t0rkk")

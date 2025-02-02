@@ -1,7 +1,17 @@
-[gd_scene format=3 uid="uid://d4kfro7hk1iej"]
+[gd_scene load_steps=3 format=3 uid="uid://d4kfro7hk1iej"]
 
-[node name="Sprite2D" type="Sprite2D"]
+[ext_resource type="Texture2D" uid="uid://b3w00ij5pgskk" path="res://chair.png" id="1_wp30g"]
+[ext_resource type="Script" path="res://chair.gd" id="2_etr0y"]
+
+[node name="Chair" type="Sprite2D"]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("1_wp30g")
+script = ExtResource("2_etr0y")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+build_mode = 1
+polygon = PackedVector2Array(370, 670, 460, 760, 380, 920, 320, 1000, 170, 1040, -10, 1050, -250, 1020, -400, 960, -520, 850, -540, 750, -480, 690, -340, 670, -220, 650, -100, 630, 30, 580, 80, 550, 50, 340, -30, 310, -20, 180, 40, -10, 180, -160, 430, -200, 580, -160, 770, -100, 820, -10, 820, 90, 760, 180, 700, 290, 630, 420, 570, 480, 450, 480)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

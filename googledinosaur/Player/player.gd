@@ -67,9 +67,6 @@ func _physics_process(delta: float) -> void:
 		# The player's hurtbox needs to be adjusted eventually.
 		if velocity.y < 0:
 			velocity.y = 0
-		
-	if Input.is_action_just_released("SpeedUp") || Input.is_action_just_released("SpeedDown"):
-		movement_speed = 400.0
 	
 	if state != States.AIRSTALL:
 		if Input.is_action_pressed("Duck"):
